@@ -7,17 +7,28 @@
 //
 
 import UIKit
+import CoreData
 
 class CategoryTVC: UITableViewController {
-
+    
+    //Creating categories and populated with notes
+    var categories = [Category]()
+    //context for core data
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    
+    
+    // Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //loadCategory()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -29,28 +40,32 @@ class CategoryTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return categories.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "category_cell", for: indexPath)
 
-        // Configure the cell...
+        // giving name and color to category
+        cell.textLabel?.text = categories[indexPath.row].name
+        cell.textLabel?.textColor = .black
+        cell.detailTextLabel?.text = "\(categories[indexPath.row].notes?.count ?? 0)"
+        cell.imageView?.image = UIImage(systemName: "folder")
 
         return cell
     }
-    */
+    
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -60,7 +75,7 @@ class CategoryTVC: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
