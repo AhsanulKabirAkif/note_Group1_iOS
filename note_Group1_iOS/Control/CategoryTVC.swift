@@ -146,5 +146,15 @@ class CategoryTVC: UITableViewController {
         tableView.reloadData()
         
     }
+    ///// saving the data
+    func saveCategory() {
+        do{
+            try context.save()
+            tableView.reloadData()
+        }
+        catch{
+            print("Error in saving data\(error.localizedDescription)")
+        }
+    }
     
 }
