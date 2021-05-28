@@ -14,7 +14,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sAt-w8-ZNx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="category_cell" textLabel="sDk-0o-2LQ" detailTextLabel="nw4-jT-ac1" style="IBUITableViewCellStyleValue1" id="tcI-Ms-feL">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -38,8 +39,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="RcY-Ni-NqR" kind="show" id="GeY-to-Keb"/>
                                 </connections>
@@ -69,7 +71,7 @@
         <!--Notes-->
         <scene sceneID="KZ4-49-y9M">
             <objects>
-                <tableViewController id="RcY-Ni-NqR" customClass="NoteTableViewController" customModule="note_Group1_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="RcY-Ni-NqR" customClass="NoteTVC" customModule="note_Group1_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aN2-fd-LKB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,6 +116,10 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="GBe-Lf-ejy"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="moveBtn" destination="VqI-eO-gp8" id="SUE-oA-Gfd"/>
+                        <outlet property="trashBtn" destination="fVT-1J-72I" id="MEi-hO-3dH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8xj-vK-fh2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -189,7 +195,7 @@
                                     <outlet property="delegate" destination="QMT-2r-StK" id="OGY-2Y-8Js"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move to folder ..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zms-Tb-QLv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move to Category..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zms-Tb-QLv">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="vBr-x8-x4L"/>
