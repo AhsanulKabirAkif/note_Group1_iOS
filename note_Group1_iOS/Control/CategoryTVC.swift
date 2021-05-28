@@ -127,6 +127,11 @@ class CategoryTVC: UITableViewController {
         }
         present(alert,animated: true,completion: nil)
     }
-    
+    func showAlert() {
+        let alert = UIAlertController(title: "Name already taken", message: "Give a different name", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        present(alert,animated: true,completion: nil)
+    }
     
 }
