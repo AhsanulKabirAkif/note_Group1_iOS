@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class NoteTVC: UITableViewController {
     @IBOutlet weak var moveBtn: UIBarButtonItem!
@@ -58,15 +59,15 @@ class NoteTVC: UITableViewController {
     }
    
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -76,7 +77,7 @@ class NoteTVC: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -102,5 +103,16 @@ class NoteTVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    /// Loading notes from core data
+    func loadNote() {
+        let request: NSFetchRequest<Note> = Note.fetchRequest()
+        do{
+            notes = try context.fetch(request)
+        }
+        catch{
+            print("Error in loading data\(error.localizedDescription)")
+        }
+        tableView.reloadData() 
+        
+    }
 }
