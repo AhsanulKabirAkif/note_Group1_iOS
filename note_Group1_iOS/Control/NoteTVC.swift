@@ -115,4 +115,9 @@ class NoteTVC: UITableViewController {
         tableView.reloadData() 
         
     }
+    /// Delete notes from core data
+    func deleteNote(note: Note) {
+        context.delete(note)
+    }
+    
 }
