@@ -22,7 +22,7 @@ class CategoryTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //loadCategory()
+        loadCategory()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -101,5 +101,32 @@ class CategoryTVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    // IBAction methods
+    
+    @IBAction func addCategoryBtn(_ sender: UIBarButtonItem) {
+        var textField = UITextField()
+        
+        let alert = UIAlertController(title: "Add a category", message: "Give a name", preferredStyle: .alert)
+        let addAction = UIAlertAction(title: "Add", style: .default){action in
+            let categoryName = self.categories.map {$0.name?.lowercased()}
+            guard !categoryName.contains(textField.text?.lowercased()) else{self.showAlert();return}
+            let newCategory = Category(context: self.context)
+            newCategory.name = textField.text
+            self.categories.append(newCategory)
+            self.saveCategory()
+            
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        cancelAction.setValue(UIColor.red, forKey: "titleTextColor")
+        
+        alert.addAction(addAction)
+        alert.addAction(cancelAction)
+        alert.addTextField{field in
+            textField = field
+            textField.placeholder = "Category Name"
+        }
+        present(alert,animated: true,completion: nil)
+    }
+    
+    
 }
