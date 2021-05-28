@@ -16,6 +16,7 @@
 		E3CF90FB26600884001E0A0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CF90F926600884001E0A0A /* LaunchScreen.storyboard */; };
 		E3CF910626600885001E0A0A /* note_Group1_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CF910526600885001E0A0A /* note_Group1_iOSTests.swift */; };
 		E3CF911126600885001E0A0A /* note_Group1_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CF911026600885001E0A0A /* note_Group1_iOSUITests.swift */; };
+		E3CF9123266067F8001E0A0A /* CategoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CF9122266067F8001E0A0A /* CategoryTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		E3CF910C26600885001E0A0A /* note_Group1_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = note_Group1_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3CF911026600885001E0A0A /* note_Group1_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = note_Group1_iOSUITests.swift; sourceTree = "<group>"; };
 		E3CF911226600885001E0A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3CF9122266067F8001E0A0A /* CategoryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,8 @@
 		E3CF90EA26600883001E0A0A /* note_Group1_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				E3CF911F2660236D001E0A0A /* Control */,
+				E3CF911E2660235B001E0A0A /* Model */,
 				E3CF90EB26600883001E0A0A /* AppDelegate.swift */,
 				E3CF90ED26600883001E0A0A /* SceneDelegate.swift */,
 				E3CF90EF26600883001E0A0A /* ViewController.swift */,
@@ -108,7 +112,6 @@
 				E3CF90F726600884001E0A0A /* Assets.xcassets */,
 				E3CF90F926600884001E0A0A /* LaunchScreen.storyboard */,
 				E3CF90FC26600884001E0A0A /* Info.plist */,
-				E3CF90F426600883001E0A0A /* note_Group1_iOS.xcdatamodeld */,
 			);
 			path = note_Group1_iOS;
 			sourceTree = "<group>";
@@ -129,6 +132,22 @@
 				E3CF911226600885001E0A0A /* Info.plist */,
 			);
 			path = note_Group1_iOSUITests;
+			sourceTree = "<group>";
+		};
+		E3CF911E2660235B001E0A0A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E3CF90F426600883001E0A0A /* note_Group1_iOS.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E3CF911F2660236D001E0A0A /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				E3CF9122266067F8001E0A0A /* CategoryTVC.swift */,
+			);
+			path = Control;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +283,7 @@
 			files = (
 				E3CF90F026600883001E0A0A /* ViewController.swift in Sources */,
 				E3CF90F626600883001E0A0A /* note_Group1_iOS.xcdatamodeld in Sources */,
+				E3CF9123266067F8001E0A0A /* CategoryTVC.swift in Sources */,
 				E3CF90EC26600883001E0A0A /* AppDelegate.swift in Sources */,
 				E3CF90EE26600883001E0A0A /* SceneDelegate.swift in Sources */,
 			);
