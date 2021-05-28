@@ -264,7 +264,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="fXZ-td-jgz"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
     <resources>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="folder.badge.plus" catalog="system" width="128" height="86"/>
