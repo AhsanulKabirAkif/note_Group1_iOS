@@ -119,5 +119,15 @@ class NoteTVC: UITableViewController {
     func deleteNote(note: Note) {
         context.delete(note)
     }
+    /// Save notes
+    func save() {
+        do{
+            try context.save()
+            tableView.reloadData()
+        }
+        catch{
+            print("Error in saving data\(error.localizedDescription)")
+        }
+    }
     
 }
