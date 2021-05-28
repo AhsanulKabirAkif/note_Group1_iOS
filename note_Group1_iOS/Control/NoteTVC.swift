@@ -16,6 +16,8 @@ class NoteTVC: UITableViewController {
     /// Create notes
     var notes = [Note]()
     
+    var selectedCategory: Category?
+    
     // Context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -120,7 +122,7 @@ class NoteTVC: UITableViewController {
         context.delete(note)
     }
     /// Save notes
-    func save() {
+    func saveNote() {
         do{
             try context.save()
             tableView.reloadData()
