@@ -133,5 +133,18 @@ class CategoryTVC: UITableViewController {
         alert.addAction(okAction)
         present(alert,animated: true,completion: nil)
     }
+    // insert data into core data Category
+    // loading the data from core data
+    func loadCategory() {
+        let request: NSFetchRequest<Category> = Category.fetchRequest()
+        do{
+            categories = try context.fetch(request)
+        }
+        catch{
+            print("Error in loading data\(error.localizedDescription)")
+        }
+        tableView.reloadData()
+        
+    }
     
 }
