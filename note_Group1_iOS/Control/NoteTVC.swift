@@ -41,15 +41,22 @@ class NoteTVC: UITableViewController {
         return notes.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "note_cell", for: indexPath)
 
         // Configure the cell...
+        let note = notes[indexPath.row]
+        let backGround = UIView()
+        
+        cell.textLabel?.text = note.tittle
+        cell.textLabel?.textColor = .black
+        backGround.backgroundColor = .brown
+        cell.selectedBackgroundView = backGround
 
         return cell
     }
-    */
+   
 
     /*
     // Override to support conditional editing of the table view.
