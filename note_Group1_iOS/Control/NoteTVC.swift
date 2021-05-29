@@ -56,7 +56,7 @@ class NoteTVC: UITableViewController {
         let note = notes[indexPath.row]
         let backGround = UIView()
         
-        cell.textLabel?.text = note.tittle
+        cell.textLabel?.text = note.title
         cell.textLabel?.textColor = .black
         backGround.backgroundColor = .brown
         cell.selectedBackgroundView = backGround
