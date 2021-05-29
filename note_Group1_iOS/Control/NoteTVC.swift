@@ -128,6 +128,15 @@ class NoteTVC: UITableViewController {
     func deleteNote(note: Note) {
         context.delete(note)
     }
+    /// Update notes->>
+    func updateNote(with title: String) {
+        notes = []
+        let newNote = Note(context: context)
+        newNote.title = title
+        newNote.parentCategory = selectedCategory
+        saveNote()
+        loadNote()
+    }
     /// Save notes
     func saveNote() {
         do{
