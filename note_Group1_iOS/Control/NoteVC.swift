@@ -20,7 +20,8 @@ class NoteVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillDisappear(_ animated: Bool) {
-        delegate?.updateNote(with: <#T##String#>)
+        guard noteTextView.text != ""else {return}
+        delegate?.updateNote(with: noteTextView.text)
     }
     
 
