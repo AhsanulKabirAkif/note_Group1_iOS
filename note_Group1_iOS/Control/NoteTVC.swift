@@ -16,7 +16,11 @@ class NoteTVC: UITableViewController {
     /// Create notes
     var notes = [Note]()
     
-    var selectedCategory: Category?
+    var selectedCategory: Category?{
+        didSet{
+            loadNote()
+        }
+    }
     
     // Context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -108,6 +112,9 @@ class NoteTVC: UITableViewController {
     /// Loading notes from core data
     func loadNote() {
         let request: NSFetchRequest<Note> = Note.fetchRequest()
+        let categoryPredicate = NSPredicate(format: "parentCategory.name=%@", selectedCategory!.name!)
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]   /// Sort by date will go here
+        request.predicate = categoryPredicate
         do{
             notes = try context.fetch(request)
         }
