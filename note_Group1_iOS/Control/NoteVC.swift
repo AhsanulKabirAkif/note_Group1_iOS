@@ -10,6 +10,10 @@ import UIKit
 
 class NoteVC: UIViewController {
 
+    @IBOutlet weak var noteTextView: UITextView!
+    
+    weak var delegate: NoteTVC?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

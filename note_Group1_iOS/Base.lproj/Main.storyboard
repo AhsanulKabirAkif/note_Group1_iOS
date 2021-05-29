@@ -125,10 +125,10 @@
             </objects>
             <point key="canvasLocation" x="2635" y="138"/>
         </scene>
-        <!--Note View Controller-->
+        <!--NoteVC-->
         <scene sceneID="im3-2s-3Ju">
             <objects>
-                <viewController id="SLO-KR-bEW" customClass="NoteViewController" customModule="note_Group1_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SLO-KR-bEW" customClass="NoteVC" customModule="note_Group1_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fJY-84-A76">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,6 +152,9 @@
                         <viewLayoutGuide key="safeArea" id="yIy-Nn-2wr"/>
                     </view>
                     <navigationItem key="navigationItem" id="8mf-ap-Wz0"/>
+                    <connections>
+                        <outlet property="noteTextView" destination="ex1-um-QZb" id="FZO-cc-fju"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ixZ-gb-MH9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
