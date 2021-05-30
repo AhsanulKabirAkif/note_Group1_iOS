@@ -109,7 +109,13 @@ class NoteTVC: UITableViewController {
         // Pass the selected object to the new view controller.
         if let destination = segue.destination as? NoteVC{
             destination.delegate = self
+            if let cell = sender as? UITableViewCell {
+                if let index = tableView.indexPath(for: cell)?.row{
+                    destination.selectedNotes = notes[index]
+                }
+            }
         }
+        
     }
     
     /// Loading notes from core data
