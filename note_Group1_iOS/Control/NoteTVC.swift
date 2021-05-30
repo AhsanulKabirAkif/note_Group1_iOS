@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class NoteTVC: UITableViewController {
+class NoteTVC: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var moveBtn: UIBarButtonItem!
     @IBOutlet weak var trashBtn: UIBarButtonItem!
     
@@ -24,16 +24,15 @@ class NoteTVC: UITableViewController {
     
     // Context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    // Search Controller
+    let searchController = UISearchController(searchResultsController: nil)
+    
     
     //Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        showSearchbar()
     }
 
     // MARK: - Table view data source
@@ -78,6 +77,7 @@ class NoteTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            
             deleteNote(note: notes[indexPath.row])
             saveNote()
             notes.remove(at: indexPath.row)
@@ -159,5 +159,17 @@ class NoteTVC: UITableViewController {
             print("Error in saving data\(error.localizedDescription)")
         }
     }
+    func showSearchbar(){
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        searchController.searchBar.searchTextField.textColor = .black
+    }
     
 }
+extension NoteVC: UISearchBarDelegate{
+    
+}
+
