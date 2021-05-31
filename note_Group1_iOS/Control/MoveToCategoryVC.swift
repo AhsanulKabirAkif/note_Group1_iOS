@@ -1,10 +1,4 @@
-//
-//  MoveToCategoryVC.swift
-//  note_Group1_iOS
-//
-//  Created by Ahsanul Kabir on 30/5/21.
-//  Copyright © 2021 Ahsanul Kabir. All rights reserved.
-//
+
 
 import UIKit
 import CoreData

@@ -56,13 +56,12 @@ class NoteVC: UIViewController, CLLocationManagerDelegate,  UIImagePickerControl
         // Do any additional setup after loading the view.
         noteTextView.text = selectedNotes?.title
 
+        newPlaceLongitude = selectedNotes!.longitude
+        newPlaceLatitude = selectedNotes!.latitude
+        date = selectedNotes!.date!
         
-//        newPlaceLongitude = selectedNotes!.longitude
-//        newPlaceLatitude = selectedNotes!.latitude
-//        date = selectedNotes!.date!
         
-        
-//        fetchImageView.image = UIImage(data: (selectedNotes?.savedImage!)!)
+        fetchImageView.image = UIImage(data: (selectedNotes?.savedImage!)!)
         
         
         
