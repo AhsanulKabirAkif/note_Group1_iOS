@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class NoteTVC: UITableViewController, UISearchBarDelegate {
+class NoteTVC: UITableViewController {
     @IBOutlet weak var moveBtn: UIBarButtonItem!
     @IBOutlet weak var trashBtn: UIBarButtonItem!
     
@@ -122,11 +122,15 @@ class NoteTVC: UITableViewController, UISearchBarDelegate {
     }
     
     /// Loading notes from core data
-    func loadNote() {
+    func loadNote(with predicate: NSPredicate? = nil) {
         let request: NSFetchRequest<Note> = Note.fetchRequest()
         let categoryPredicate = NSPredicate(format: "parentCategory.name=%@", selectedCategory!.name!)
         request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]   /// Sort by date will go here
-        request.predicate = categoryPredicate
+        if let additionalPredicate = predicate{
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate,additionalPredicate])
+        }else {
+            request.predicate = categoryPredicate
+        }
         do{
             notes = try context.fetch(request)
         }
@@ -169,7 +173,20 @@ class NoteTVC: UITableViewController, UISearchBarDelegate {
     }
     
 }
-extension NoteVC: UISearchBarDelegate{
+extension NoteTVC: UISearchBarDelegate{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        loadNote(with: predicate)
+        
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            loadNote()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
+    }
     
 }
 
