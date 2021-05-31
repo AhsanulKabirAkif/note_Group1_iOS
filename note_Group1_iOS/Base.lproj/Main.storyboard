@@ -167,10 +167,10 @@
             </objects>
             <point key="canvasLocation" x="3365" y="138"/>
         </scene>
-        <!--Move To View Controller-->
+        <!--Move To CategoryVC-->
         <scene sceneID="i3h-tz-cKV">
             <objects>
-                <viewController id="QMT-2r-StK" customClass="MoveToViewController" customModule="note_Group1_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QMT-2r-StK" customClass="MoveToCategoryVC" customModule="note_Group1_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4qd-xM-dii">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -201,8 +201,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="QMT-2r-StK" id="EFB-cY-ega"/>
-                                    <outlet property="delegate" destination="QMT-2r-StK" id="OGY-2Y-8Js"/>
+                                    <outlet property="dataSource" destination="QMT-2r-StK" id="hbT-OR-pnC"/>
+                                    <outlet property="delegate" destination="QMT-2r-StK" id="GoT-Lf-WJR"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Move to Category..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zms-Tb-QLv">
@@ -218,6 +218,9 @@
                                 <rect key="frame" x="346" y="35" width="48" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelMove:" destination="QMT-2r-StK" eventType="touchUpInside" id="Xva-SX-KOF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -237,7 +240,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="hsY-00-inV" kind="unwind" identifier="dismissMoveView" unwindAction="unwindToNoteTableViewControllerWithSegue:" id="9XF-Fz-OxH"/>
+                        <segue destination="hsY-00-inV" kind="unwind" identifier="dismissMoveToVC" unwindAction="unwindToNoteTVC:" id="LTY-jz-iiu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfu-Rp-YUX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

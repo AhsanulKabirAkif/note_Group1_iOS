@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E3667BC92664B9D10054F96D /* MoveToCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3667BC82664B9D10054F96D /* MoveToCategoryVC.swift */; };
 		E3A887132662D4AA00B9AB7D /* NoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A887122662D4AA00B9AB7D /* NoteVC.swift */; };
 		E3CF90EC26600883001E0A0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CF90EB26600883001E0A0A /* AppDelegate.swift */; };
 		E3CF90EE26600883001E0A0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CF90ED26600883001E0A0A /* SceneDelegate.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E3667BC82664B9D10054F96D /* MoveToCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToCategoryVC.swift; sourceTree = "<group>"; };
 		E3A887122662D4AA00B9AB7D /* NoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteVC.swift; sourceTree = "<group>"; };
 		E3CF90E826600883001E0A0A /* note_Group1_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = note_Group1_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3CF90EB26600883001E0A0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				E3CF9122266067F8001E0A0A /* CategoryTVC.swift */,
 				E3CF91242660C460001E0A0A /* NoteTVC.swift */,
 				E3A887122662D4AA00B9AB7D /* NoteVC.swift */,
+				E3667BC82664B9D10054F96D /* MoveToCategoryVC.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			files = (
 				E3CF90F026600883001E0A0A /* ViewController.swift in Sources */,
 				E3A887132662D4AA00B9AB7D /* NoteVC.swift in Sources */,
+				E3667BC92664B9D10054F96D /* MoveToCategoryVC.swift in Sources */,
 				E3CF90F626600883001E0A0A /* note_Group1_iOS.xcdatamodeld in Sources */,
 				E3CF9123266067F8001E0A0A /* CategoryTVC.swift in Sources */,
 				E3CF91252660C460001E0A0A /* NoteTVC.swift in Sources */,

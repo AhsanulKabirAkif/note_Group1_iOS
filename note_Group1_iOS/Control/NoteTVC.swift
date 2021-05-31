@@ -139,13 +139,25 @@ class NoteTVC: UITableViewController {
                 }
             }
         }
-        
+        if let destination = segue.destination as? MoveToCategoryVC{
+            if let indexPath = tableView.indexPathsForSelectedRows {
+                let rows = indexPath.map {$0.row}
+                destination.selctedNotestoMove = rows.map {notes[$0]}
+            }
     }
+}
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard identifier != "moveNotesSegue" else {
             return true
         }
         return movedlt ? false : true
+    }
+    @IBAction func unwindToNoteTVC(_ unwindSegue: UIStoryboardSegue) {
+        //let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
+        saveNote()
+        loadNote()
+        tableView.setEditing(false, animated: true)
     }
     
     /// Loading notes from core data
