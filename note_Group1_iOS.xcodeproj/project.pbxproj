@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E1D05F326650471002E3783 /* note_Group1_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E1D05F126650471002E3783 /* note_Group1_iOS.xcdatamodeld */; };
 		E3667BC92664B9D10054F96D /* MoveToCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3667BC82664B9D10054F96D /* MoveToCategoryVC.swift */; };
 		E3A887132662D4AA00B9AB7D /* NoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A887122662D4AA00B9AB7D /* NoteVC.swift */; };
 		E3CF90EC26600883001E0A0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CF90EB26600883001E0A0A /* AppDelegate.swift */; };
 		E3CF90EE26600883001E0A0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CF90ED26600883001E0A0A /* SceneDelegate.swift */; };
 		E3CF90F026600883001E0A0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CF90EF26600883001E0A0A /* ViewController.swift */; };
 		E3CF90F326600883001E0A0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CF90F126600883001E0A0A /* Main.storyboard */; };
-		E3CF90F626600883001E0A0A /* note_Group1_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3CF90F426600883001E0A0A /* note_Group1_iOS.xcdatamodeld */; };
 		E3CF90F826600884001E0A0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CF90F726600884001E0A0A /* Assets.xcassets */; };
 		E3CF90FB26600884001E0A0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3CF90F926600884001E0A0A /* LaunchScreen.storyboard */; };
 		E3CF910626600885001E0A0A /* note_Group1_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CF910526600885001E0A0A /* note_Group1_iOSTests.swift */; };
@@ -40,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E1D05F226650471002E3783 /* note_Group1_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = note_Group1_iOS.xcdatamodel; sourceTree = "<group>"; };
 		E3667BC82664B9D10054F96D /* MoveToCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToCategoryVC.swift; sourceTree = "<group>"; };
 		E3A887122662D4AA00B9AB7D /* NoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteVC.swift; sourceTree = "<group>"; };
 		E3CF90E826600883001E0A0A /* note_Group1_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = note_Group1_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,7 +48,6 @@
 		E3CF90ED26600883001E0A0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E3CF90EF26600883001E0A0A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E3CF90F226600883001E0A0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E3CF90F526600883001E0A0A /* note_Group1_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = note_Group1_iOS.xcdatamodel; sourceTree = "<group>"; };
 		E3CF90F726600884001E0A0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3CF90FA26600884001E0A0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3CF90FC26600884001E0A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 		E3CF911E2660235B001E0A0A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E3CF90F426600883001E0A0A /* note_Group1_iOS.xcdatamodeld */,
+				7E1D05F126650471002E3783 /* note_Group1_iOS.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,9 +291,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3CF90F026600883001E0A0A /* ViewController.swift in Sources */,
+				7E1D05F326650471002E3783 /* note_Group1_iOS.xcdatamodeld in Sources */,
 				E3A887132662D4AA00B9AB7D /* NoteVC.swift in Sources */,
 				E3667BC92664B9D10054F96D /* MoveToCategoryVC.swift in Sources */,
-				E3CF90F626600883001E0A0A /* note_Group1_iOS.xcdatamodeld in Sources */,
 				E3CF9123266067F8001E0A0A /* CategoryTVC.swift in Sources */,
 				E3CF91252660C460001E0A0A /* NoteTVC.swift in Sources */,
 				E3CF90EC26600883001E0A0A /* AppDelegate.swift in Sources */,
@@ -472,6 +472,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = note_Group1_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,6 +490,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = note_Group1_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -622,13 +624,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E3CF90F426600883001E0A0A /* note_Group1_iOS.xcdatamodeld */ = {
+		7E1D05F126650471002E3783 /* note_Group1_iOS.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E3CF90F526600883001E0A0A /* note_Group1_iOS.xcdatamodel */,
+				7E1D05F226650471002E3783 /* note_Group1_iOS.xcdatamodel */,
 			);
-			currentVersion = E3CF90F526600883001E0A0A /* note_Group1_iOS.xcdatamodel */;
-			path = note_Group1_iOS.xcdatamodeld;
+			currentVersion = 7E1D05F226650471002E3783 /* note_Group1_iOS.xcdatamodel */;
+			name = note_Group1_iOS.xcdatamodeld;
+			path = ../../../../Documents/note_Group1_iOS/note_Group1_iOS/Model/note_Group1_iOS.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

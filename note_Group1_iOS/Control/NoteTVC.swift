@@ -1,17 +1,13 @@
-//
-//  NoteTVC.swift
-//  note_Group1_iOS
-//
-//  Created by Ahsanul Kabir on 27/5/21.
-//  Copyright © 2021 Ahsanul Kabir. All rights reserved.
-//
+
 
 import UIKit
 import CoreData
 
 class NoteTVC: UITableViewController {
-    @IBOutlet weak var moveBtn: UIBarButtonItem!
+ 
     @IBOutlet weak var trashBtn: UIBarButtonItem!
+    
+    @IBOutlet weak var moveBtn: UIBarButtonItem!
     
     var movedlt = false
     
@@ -57,11 +53,17 @@ class NoteTVC: UITableViewController {
         let note = notes[indexPath.row]
         let backGround = UIView()
         
+        let time = NSDate()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM"
+        let formatteddate = formatter.string(from: time as Date)
+       
+        
         cell.textLabel?.text = note.title
         cell.textLabel?.textColor = .black
         backGround.backgroundColor = .brown
         cell.selectedBackgroundView = backGround
-
+        cell.detailTextLabel?.text = formatteddate
         return cell
     }
    
@@ -86,7 +88,7 @@ class NoteTVC: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     
 
@@ -107,21 +109,26 @@ class NoteTVC: UITableViewController {
     
     // Actions button
     
+ 
+    
     @IBAction func editBtnClicked(_ sender: UIBarButtonItem) {
         movedlt = !movedlt
-        trashBtn.isEnabled = !trashBtn.isEnabled
-        moveBtn.isEnabled = !moveBtn.isEnabled
-        tableView.setEditing(movedlt, animated: true)
+               trashBtn.isEnabled = !trashBtn.isEnabled
+               moveBtn.isEnabled = !moveBtn.isEnabled
+               tableView.setEditing(movedlt, animated: true)
     }
+    
+
+    
     
     @IBAction func trashBtnClicked(_ sender: UIBarButtonItem) {
         if let indexPaths = tableView.indexPathsForSelectedRows {
-            let rows = (indexPaths.map {$0.row}).sorted(by: >)
-            let _ = rows.map{deleteNote(note: notes[$0])}
-            let _ = rows.map{notes.remove(at: $0)}
-            tableView.reloadData()
-            saveNote()
-        }
+                 let rows = (indexPaths.map {$0.row}).sorted(by: >)
+                 let _ = rows.map{deleteNote(note: notes[$0])}
+                 let _ = rows.map{notes.remove(at: $0)}
+                 tableView.reloadData()
+                 saveNote()
+             }
     }
     
     
@@ -139,32 +146,40 @@ class NoteTVC: UITableViewController {
                 }
             }
         }
+        
         if let destination = segue.destination as? MoveToCategoryVC{
-            if let indexPath = tableView.indexPathsForSelectedRows {
-                let rows = indexPath.map {$0.row}
-                destination.selctedNotestoMove = rows.map {notes[$0]}
-            }
+                if let indexPath = tableView.indexPathsForSelectedRows {
+                    let rows = indexPath.map {$0.row}
+                    destination.selctedNotestoMove = rows.map {notes[$0]}
+                }
+        }
+        
     }
-}
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard identifier != "moveNotesSegue" else {
             return true
         }
         return movedlt ? false : true
     }
+    
     @IBAction func unwindToNoteTVC(_ unwindSegue: UIStoryboardSegue) {
-        //let sourceViewController = unwindSegue.source
-        // Use data from the view controller which initiated the unwind segue
-        saveNote()
-        loadNote()
-        tableView.setEditing(false, animated: true)
-    }
+           //let sourceViewController = unwindSegue.source
+           // Use data from the view controller which initiated the unwind segue
+           saveNote()
+           loadNote()
+           tableView.setEditing(false, animated: true)
+       }
     
     /// Loading notes from core data
     func loadNote(with predicate: NSPredicate? = nil) {
         let request: NSFetchRequest<Note> = Note.fetchRequest()
         let categoryPredicate = NSPredicate(format: "parentCategory.name=%@", selectedCategory!.name!)
-        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]   /// Sort by date will go here
+        let sectionSortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        let sortDescriptors = [sectionSortDescriptor]
+        request.sortDescriptors = sortDescriptors
+        
+       /// Sort by date will go here
+       
         if let additionalPredicate = predicate{
             request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate,additionalPredicate])
         }else {
@@ -176,7 +191,7 @@ class NoteTVC: UITableViewController {
         catch{
             print("Error in loading data\(error.localizedDescription)")
         }
-        tableView.reloadData() 
+        tableView.reloadData()
         
     }
     /// Delete notes from core data
@@ -184,11 +199,15 @@ class NoteTVC: UITableViewController {
         context.delete(note)
     }
     /// Update notes->>
-    func updateNote(with title: String) {
+    func updateNote(with title: String, lat: Double, long: Double, data: Data, date: Date) {
         notes = []
         let newNote = Note(context: context)
         newNote.title = title
         newNote.parentCategory = selectedCategory
+        newNote.latitude = lat
+        newNote.longitude = long
+        newNote.savedImage = data
+        newNote.date = date
         saveNote()
         loadNote()
     }
@@ -228,4 +247,5 @@ extension NoteTVC: UISearchBarDelegate{
     }
     
 }
+
 
