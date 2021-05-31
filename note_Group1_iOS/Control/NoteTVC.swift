@@ -13,6 +13,8 @@ class NoteTVC: UITableViewController {
     @IBOutlet weak var moveBtn: UIBarButtonItem!
     @IBOutlet weak var trashBtn: UIBarButtonItem!
     
+    var movedlt = false
+    
     /// Create notes
     var notes = [Note]()
     
@@ -102,7 +104,26 @@ class NoteTVC: UITableViewController {
         return true
     }
     */
-
+    
+    // Actions button
+    
+    @IBAction func editBtnClicked(_ sender: UIBarButtonItem) {
+        movedlt = !movedlt
+        trashBtn.isEnabled = !trashBtn.isEnabled
+        moveBtn.isEnabled = !moveBtn.isEnabled
+        tableView.setEditing(movedlt, animated: true)
+    }
+    
+    @IBAction func trashBtnClicked(_ sender: UIBarButtonItem) {
+        if let indexPaths = tableView.indexPathsForSelectedRows {
+            let rows = (indexPaths.map {$0.row}).sorted(by: >)
+            let _ = rows.map{deleteNote(note: notes[$0])}
+            let _ = rows.map{notes.remove(at: $0)}
+            tableView.reloadData()
+            saveNote()
+        }
+    }
+    
     
     // MARK: - Navigation
 
@@ -119,6 +140,9 @@ class NoteTVC: UITableViewController {
             }
         }
         
+    }
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return movedlt ? false : true
     }
     
     /// Loading notes from core data
