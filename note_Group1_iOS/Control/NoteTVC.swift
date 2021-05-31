@@ -142,6 +142,9 @@ class NoteTVC: UITableViewController {
         
     }
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        guard identifier != "moveNotesSegue" else {
+            return true
+        }
         return movedlt ? false : true
     }
     
